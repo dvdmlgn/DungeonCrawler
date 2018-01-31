@@ -42,6 +42,11 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
+
+        }
+
+        private void OnWindowLoad(object sender, EventArgs e)
+        {
             player.Height = 60;
             player.Width = 60;
 
@@ -67,7 +72,6 @@ namespace DungeonCrawler
             DistanceLabel.Content = Distance;
 
             SetTimerInterrupts();
-
 
         }
 
