@@ -3,4 +3,5 @@
 - refactor code into game loop
 - get animations working
 - create template editor
-- use JSON for Save files, and save locations for room templates
+- use JSON for Save files, and save locations for room templates 
+- get Delta time working
