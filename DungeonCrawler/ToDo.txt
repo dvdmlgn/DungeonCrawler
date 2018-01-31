@@ -1,0 +1,3 @@
+﻿- redo collision dectection
+- create entity classes to handle game objects
+- refactor code into game loop

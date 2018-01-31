@@ -93,5 +93,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ToDo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="kermie.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="zeldaSpriteSheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="evilSpock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Animations\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

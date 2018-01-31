@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonCrawler", "DungeonCrawler\DungeonCrawler.csproj", "{DE198D30-5A2A-40AB-BA54-778697406A03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D44DE635-8BDD-4AC0-B43D-1292A62D8D38}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Documents\kermie.JPG = ..\..\Documents\kermie.JPG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

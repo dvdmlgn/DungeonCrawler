@@ -40,8 +40,8 @@ namespace DungeonCrawler
         {
             InitializeComponent();
 
-            player.Height = 20;
-            player.Width = 20;
+            player.Height = 60;
+            player.Width = 60;
 
             player.Fill = Brushes.ForestGreen;
 
@@ -71,97 +71,97 @@ namespace DungeonCrawler
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.A))
-            {
-                if(IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
-                {
-                   // x += 1;
-                    player.Fill = Brushes.OrangeRed;
+        //    if (Keyboard.IsKeyDown(Key.A))
+        //    {
+        //        if(IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+        //        {
+        //           // x += 1;
+        //            player.Fill = Brushes.OrangeRed;
 
-                }
+        //        }
 
                 
 
 
-                else
-                {
-                    player.Fill = Brushes.ForestGreen;
-                }
+        //        else
+        //        {
+        //            player.Fill = Brushes.ForestGreen;
+        //        }
 
-                x -= 7;
+        //        x -= 7;
 
-                Canvas.SetLeft(player, x);
+        //        Canvas.SetLeft(player, x);
 
-                DistanceLabel.Content = "";
-                DistanceLabel.Content = Distance;
-            }
+        //        DistanceLabel.Content = "";
+        //        DistanceLabel.Content = Distance;
+        //    }
 
-            if (Keyboard.IsKeyDown(Key.D))
-            {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
-                {
-                    //x -= 1;
-                    player.Fill = Brushes.OrangeRed;
+        //    if (Keyboard.IsKeyDown(Key.D))
+        //    {
+        //        if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+        //        {
+        //            //x -= 1;
+        //            player.Fill = Brushes.OrangeRed;
 
-                }
+        //        }
 
-                else
-                {
-                    player.Fill = Brushes.ForestGreen;
-                }
+        //        else
+        //        {
+        //            player.Fill = Brushes.ForestGreen;
+        //        }
 
-                x += 7;
+        //        x += 7;
 
-                Canvas.SetLeft(player, x);
+        //        Canvas.SetLeft(player, x);
 
-                DistanceLabel.Content = "";
-                DistanceLabel.Content = Distance;
-            }
+        //        DistanceLabel.Content = "";
+        //        DistanceLabel.Content = Distance;
+        //    }
 
-            if (Keyboard.IsKeyDown(Key.W))
-            {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
-                {
-                    //y += 1;
-                    player.Fill = Brushes.OrangeRed;
+        //    if (Keyboard.IsKeyDown(Key.W))
+        //    {
+        //        if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+        //        {
+        //            //y += 1;
+        //            player.Fill = Brushes.OrangeRed;
 
-                }
+        //        }
 
-                else
-                {
-                    player.Fill = Brushes.ForestGreen;
-                }
+        //        else
+        //        {
+        //            player.Fill = Brushes.ForestGreen;
+        //        }
 
 
-                y -= 7;
+        //        y -= 7;
 
-                Canvas.SetTop(player, y);
+        //        Canvas.SetTop(player, y);
 
-                DistanceLabel.Content = "";
-                DistanceLabel.Content = Distance;
-            }
+        //        DistanceLabel.Content = "";
+        //        DistanceLabel.Content = Distance;
+        //    }
 
-            if (Keyboard.IsKeyDown(Key.S))
-            {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
-                {
-                    //y -= 1;
-                    player.Fill = Brushes.OrangeRed;
+        //    if (Keyboard.IsKeyDown(Key.S))
+        //    {
+        //        if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+        //        {
+        //            //y -= 1;
+        //            player.Fill = Brushes.OrangeRed;
 
-                }
+        //        }
 
-                else
-                {
-                    player.Fill = Brushes.ForestGreen;
-                }
+        //        else
+        //        {
+        //            player.Fill = Brushes.ForestGreen;
+        //        }
 
-                y += 7;
+        //        y += 7;
 
-                Canvas.SetTop(player, y);
+        //        Canvas.SetTop(player, y);
 
-                DistanceLabel.Content = "";
-                DistanceLabel.Content = Distance;
-            }
+        //        DistanceLabel.Content = "";
+        //        DistanceLabel.Content = Distance;
+        //    }
         }
 
         public static bool IsCollision(int x1, int y1, int x2, int y2, int radius, out string Distance)
@@ -198,6 +198,125 @@ namespace DungeonCrawler
             TickLabel.Content = "";
 
             TickLabel.Content = Ticks.ToString();
+
+            if(KeyDownEvent != null)
+            {
+                KeyLabel.Content = Keyboard.KeyDownEvent.ToString();
+            }
+
+            else
+            {
+                KeyLabel.Content = "";
+            }
+
+            MovePlayer();
+            
+        }
+
+        private void MovePlayer()
+        {
+            if(Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                Rectangle pointer = new Rectangle();
+
+                pointer.Height = 4;
+                pointer.Width = 4;
+                pointer.Fill = Brushes.Pink;
+
+                canvas.Children.Add(pointer);
+
+                Canvas.SetLeft(pointer, Mouse.GetPosition(canvas).X);
+                Canvas.SetTop(pointer, Mouse.GetPosition(canvas).Y);
+            }
+
+            if (Keyboard.IsKeyDown(Key.A))
+            {
+                //if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+                //{
+                //    // x += 1;
+                //    player.Fill = Brushes.OrangeRed;
+
+                //}
+
+                //else
+                //{
+                //    player.Fill = Brushes.ForestGreen;
+                //}
+
+                x -= 4;
+
+                Canvas.SetLeft(player, x);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
+            }
+
+            if (Keyboard.IsKeyDown(Key.D))
+            {
+                //if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+                //{
+                //    //x -= 1;
+                //    player.Fill = Brushes.OrangeRed;
+
+                //}
+
+                //else
+                //{
+                //    player.Fill = Brushes.ForestGreen;
+                //}
+
+                x += 4;
+
+                Canvas.SetLeft(player, x);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
+            }
+
+            if (Keyboard.IsKeyDown(Key.W))
+            {
+                //if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+                //{
+                //    //y += 1;
+                //    player.Fill = Brushes.OrangeRed;
+
+                //}
+
+                //else
+                //{
+                //    player.Fill = Brushes.ForestGreen;
+                //}
+
+
+                y -= 4;
+
+                Canvas.SetTop(player, y);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
+            }
+
+            if (Keyboard.IsKeyDown(Key.S))
+            {
+                //if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
+                //{
+                //    //y -= 1;
+                //    player.Fill = Brushes.OrangeRed;
+
+                //}
+
+                //else
+                //{
+                //    player.Fill = Brushes.ForestGreen;
+                //}
+
+                y += 4;
+
+                Canvas.SetTop(player, y);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
+            }
         }
 
         private void OnSecondsTimerTick(object sender, EventArgs e)
@@ -207,6 +326,25 @@ namespace DungeonCrawler
             SecondsLabel.Content = "";
 
             SecondsLabel.Content = Seconds.ToString();
+
+            if(Seconds == 3)
+            {
+                string filepath = Environment.CurrentDirectory;
+                filepath = filepath.Substring(0, filepath.Length - 9);
+                filepath += "kermie.JPG";
+
+                Uri uri = new Uri(filepath, UriKind.RelativeOrAbsolute);
+                BitmapImage bitmap = new BitmapImage(uri);
+
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = bitmap;
+
+                //obsticle.Fill = imageBrush;
+                player.Fill = imageBrush;
+
+                BitmapSource bitmapSource = new byte[] { };
+            }
+
         }
 
         public static void GameLoop()
@@ -223,6 +361,21 @@ namespace DungeonCrawler
 
 
                 // UpdateCanvas();
+            }
+        }
+
+        // this method should create a bitmapImage from a byteArray
+        // will be useful for procedurally generating our own images or animations
+        public BitmapImage ToImage(byte[] array)
+        {
+            using (var ms = new System.IO.MemoryStream(array))
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad; // here
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
             }
         }
 
