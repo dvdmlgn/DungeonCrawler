@@ -21,14 +21,20 @@ namespace DungeonCrawler
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer timeer;
+        private DispatcherTimer timeer = new DispatcherTimer();
+        private DispatcherTimer Secondstimer = new DispatcherTimer();
 
         Rectangle player = new Rectangle();
 
         Rectangle obsticle = new Rectangle();
 
+        String Distance = "";
+
         public static int x = 0;
         public static int y = 0;
+
+        public static int Ticks = 0;
+        public static int Seconds = 0;
 
         public MainWindow()
         {
@@ -56,20 +62,26 @@ namespace DungeonCrawler
             Canvas.SetTop(obsticle, canvas.Height / 2);
 
 
+            DistanceLabel.Content = Distance;
 
-            
+            SetTimerInterrupts();
+
+
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keyboard.IsKeyDown(Key.A))
             {
-                if(IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10))
+                if(IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
                 {
                    // x += 1;
                     player.Fill = Brushes.OrangeRed;
 
                 }
+
+                
+
 
                 else
                 {
@@ -79,11 +91,14 @@ namespace DungeonCrawler
                 x -= 7;
 
                 Canvas.SetLeft(player, x);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
             }
 
             if (Keyboard.IsKeyDown(Key.D))
             {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10))
+                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
                 {
                     //x -= 1;
                     player.Fill = Brushes.OrangeRed;
@@ -98,11 +113,14 @@ namespace DungeonCrawler
                 x += 7;
 
                 Canvas.SetLeft(player, x);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
             }
 
             if (Keyboard.IsKeyDown(Key.W))
             {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10))
+                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
                 {
                     //y += 1;
                     player.Fill = Brushes.OrangeRed;
@@ -118,11 +136,14 @@ namespace DungeonCrawler
                 y -= 7;
 
                 Canvas.SetTop(player, y);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
             }
 
             if (Keyboard.IsKeyDown(Key.S))
             {
-                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10))
+                if (IsCollision(x, y, (int)canvas.Width / 2, (int)canvas.Height / 2, 10, out Distance))
                 {
                     //y -= 1;
                     player.Fill = Brushes.OrangeRed;
@@ -137,16 +158,73 @@ namespace DungeonCrawler
                 y += 7;
 
                 Canvas.SetTop(player, y);
+
+                DistanceLabel.Content = "";
+                DistanceLabel.Content = Distance;
             }
         }
 
-        public static bool IsCollision(int x1, int y1, int x2, int y2, int radius)
+        public static bool IsCollision(int x1, int y1, int x2, int y2, int radius, out string Distance)
         {
-            double distance = Math.Sqrt( Math.Pow( (x2 - x1), (x2 - x1) ) + Math.Pow( (y2 - y1), (y2 - y1 )) );
+           double distance = Math.Sqrt( ( (x2 - x1)^2 ) + ( (y2 - y1) ^ 2) );
 
-            if( !(distance > radius) ) { return true; }
+            Distance = distance.ToString();
 
-            return false;
+            if( !(distance > 4) ) { return true; }
+
+
+            //if (RectA.Left < RectB.Right && RectA.Right > RectB.Left &&
+     //RectA.Top > RectB.Bottom && RectA.Bottom < RectB.Top)
+
+                return false;
         }
+
+
+        private void SetTimerInterrupts()
+        {
+            timeer.IsEnabled = true;
+            timeer.Interval = TimeSpan.FromMilliseconds(16.67);// an approximation for 60fps
+            timeer.Tick += OnTimerTick;
+
+            Secondstimer.IsEnabled = true;
+            Secondstimer.Interval = TimeSpan.FromSeconds(1);
+            Secondstimer.Tick += OnSecondsTimerTick;
+        }
+
+        private void OnTimerTick(object sender, EventArgs e)
+        {
+            Ticks++;
+
+            TickLabel.Content = "";
+
+            TickLabel.Content = Ticks.ToString();
+        }
+
+        private void OnSecondsTimerTick(object sender, EventArgs e)
+        {
+            Seconds++;
+
+            SecondsLabel.Content = "";
+
+            SecondsLabel.Content = Seconds.ToString();
+        }
+
+        public static void GameLoop()
+        {
+            bool isRun = true;
+
+            while(isRun)
+            {
+                // GetPlayerInput();
+
+                // GameLogic();
+                    // MoveObjects();
+                    // DetectCollisions();
+
+
+                // UpdateCanvas();
+            }
+        }
+
     }
 }
