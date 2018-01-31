@@ -105,8 +105,53 @@
   <ItemGroup>
     <Resource Include="evilSpock.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Animations\" />
+    <Resource Include="Animations\0.png" />
+    <Resource Include="Animations\1.png" />
+    <Resource Include="Animations\10.png" />
+    <Resource Include="Animations\11.png" />
+    <Resource Include="Animations\12.png" />
+    <Resource Include="Animations\13.png" />
+    <Resource Include="Animations\14.png" />
+    <Resource Include="Animations\15.png" />
+    <Resource Include="Animations\16.png" />
+    <Resource Include="Animations\17.png" />
+    <Resource Include="Animations\18.png" />
+    <Resource Include="Animations\19.png" />
+    <Resource Include="Animations\2.png" />
+    <Resource Include="Animations\20.png" />
+    <Resource Include="Animations\21.png" />
+    <Resource Include="Animations\22.png" />
+    <Resource Include="Animations\23.png" />
+    <Resource Include="Animations\24.png" />
+    <Resource Include="Animations\25.png" />
+    <Resource Include="Animations\26.png" />
+    <Resource Include="Animations\27.png" />
+    <Resource Include="Animations\28.png" />
+    <Resource Include="Animations\29.png" />
+    <Resource Include="Animations\3.png" />
+    <Resource Include="Animations\30.png" />
+    <Resource Include="Animations\31.png" />
+    <Resource Include="Animations\32.png" />
+    <Resource Include="Animations\33.png" />
+    <Resource Include="Animations\34.png" />
+    <Resource Include="Animations\35.png" />
+    <Resource Include="Animations\36.png" />
+    <Resource Include="Animations\37 - Copy.png" />
+    <Resource Include="Animations\37.png" />
+    <Resource Include="Animations\38.png" />
+    <Resource Include="Animations\39.png" />
+    <Resource Include="Animations\4.png" />
+    <Resource Include="Animations\40.png" />
+    <Resource Include="Animations\41.png" />
+    <Resource Include="Animations\42 - Copy.png" />
+    <Resource Include="Animations\42.png" />
+    <Resource Include="Animations\5.png" />
+    <Resource Include="Animations\6.png" />
+    <Resource Include="Animations\7.png" />
+    <Resource Include="Animations\8.png" />
+    <Resource Include="Animations\9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
