@@ -1,3 +1,6 @@
 ﻿- redo collision dectection
 - create entity classes to handle game objects
 - refactor code into game loop
+- get animations working
+- create template editor
+- use JSON for Save files, and save locations for room templates

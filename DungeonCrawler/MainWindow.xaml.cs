@@ -32,6 +32,8 @@ namespace DungeonCrawler
 
         public static int x = 0;
         public static int y = 0;
+        public static int speed = 7;
+
 
         public static int Ticks = 0;
         public static int Seconds = 0;
@@ -243,7 +245,7 @@ namespace DungeonCrawler
                 //    player.Fill = Brushes.ForestGreen;
                 //}
 
-                x -= 4;
+                x -= speed;
 
                 Canvas.SetLeft(player, x);
 
@@ -265,7 +267,7 @@ namespace DungeonCrawler
                 //    player.Fill = Brushes.ForestGreen;
                 //}
 
-                x += 4;
+                x += speed;
 
                 Canvas.SetLeft(player, x);
 
@@ -288,7 +290,7 @@ namespace DungeonCrawler
                 //}
 
 
-                y -= 4;
+                y -= speed;
 
                 Canvas.SetTop(player, y);
 
@@ -310,7 +312,7 @@ namespace DungeonCrawler
                 //    player.Fill = Brushes.ForestGreen;
                 //}
 
-                y += 4;
+                y += speed;
 
                 Canvas.SetTop(player, y);
 
@@ -342,7 +344,7 @@ namespace DungeonCrawler
                 //obsticle.Fill = imageBrush;
                 player.Fill = imageBrush;
 
-                BitmapSource bitmapSource = new byte[] { };
+                //BitmapSource bitmapSource = new byte[] { };
             }
 
         }
@@ -366,18 +368,18 @@ namespace DungeonCrawler
 
         // this method should create a bitmapImage from a byteArray
         // will be useful for procedurally generating our own images or animations
-        public BitmapImage ToImage(byte[] array)
-        {
-            using (var ms = new System.IO.MemoryStream(array))
-            {
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.CacheOption = BitmapCacheOption.OnLoad; // here
-                image.StreamSource = ms;
-                image.EndInit();
-                return image;
-            }
-        }
+        //public BitmapImage ToImage(byte[] array)
+        //{
+        //    using (var ms = new System.IO.MemoryStream(array))
+        //    {
+        //        var image = new BitmapImage();
+        //        image.BeginInit();
+        //        image.CacheOption = BitmapCacheOption.OnLoad; // here
+        //        image.StreamSource = ms;
+        //        image.EndInit();
+        //        return image;
+        //    }
+        //}
 
     }
 }
