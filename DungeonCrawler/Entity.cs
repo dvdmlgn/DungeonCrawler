@@ -68,6 +68,16 @@ namespace DungeonCrawler
             Canvas.SetLeft(this.CollisionMask, this.X);
             Canvas.SetTop(this.CollisionMask, this.Y);
         }
+
+
+        public static bool IsCollision(Entity entity1, Entity entity2)
+        {
+            // Logic to calculate collision detectsion
+
+            
+
+            return false;
+        }
       // ---------------------------------------------------------------------------------------------------------
         #endregion
 
