@@ -14,7 +14,11 @@ namespace DungeonCrawler
         public int MouseX { get; set; }
         public int MouseY { get; set; }
 
-
+        public void Reset()
+        {
+            PlayerX = 0;
+            PlayerY = 0;
+        }
 
     }
 }

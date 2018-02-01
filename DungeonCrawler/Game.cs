@@ -46,7 +46,7 @@ namespace DungeonCrawler
 
             // DoGameLogic();
 
-            // UpdateCanvas();
+            UpdateCanvas();
         }
 
         private static void GetUserInput()
@@ -58,7 +58,7 @@ namespace DungeonCrawler
 
             if (Keyboard.IsKeyDown(Key.A))
             {
-                UserInput.PlayerX = Player.X - Player.Speed;
+                UserInput.PlayerX = 0 - Player.Speed;
 
                 // calculate if collision will occur
 
@@ -69,7 +69,7 @@ namespace DungeonCrawler
             {
                 //int x = 0 + player.Speed;
 
-                UserInput.PlayerX = Player.X + Player.Speed;
+                UserInput.PlayerX = 0 + Player.Speed;
 
                // player.Move(x, player.Y);
             }
@@ -78,16 +78,16 @@ namespace DungeonCrawler
             {
                 //int y = 0 - player.Speed;
 
-                UserInput.PlayerY = Player.Y - Player.Speed;
+                UserInput.PlayerY = 0 - Player.Speed;
 
-                //player.Move(player.X, y);
+                //player.Move(player.X, y); 
             }
 
             if (Keyboard.IsKeyDown(Key.S))
             {
                 //int y = 0 + player.Speed;
 
-                UserInput.PlayerY = Player.Y + Player.Speed;
+                UserInput.PlayerY = 0 + Player.Speed;
 
                 //player.Move(player.X, y);
             }
@@ -117,6 +117,8 @@ namespace DungeonCrawler
         private static void UpdateCanvas()
         {
             Player.Move(UserInput.PlayerX, UserInput.PlayerY);
+
+            UserInput.Reset();
         }
       // ---------------------------------------------------------------------------------------------------------
         #endregion

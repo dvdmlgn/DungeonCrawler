@@ -31,7 +31,7 @@ namespace DungeonCrawler
             X = 0,
             Y = 0,
 
-            Speed = 1,
+            Speed = 7,
 
             CollisionMask = new Rectangle()
             {
@@ -87,6 +87,8 @@ namespace DungeonCrawler
 
             Canvas.SetLeft(obsticle, canvas.Width / 2);
             Canvas.SetTop(obsticle, canvas.Height / 2);
+
+            Game.Init(ref canvas, playerStats, new List<EntityStats>());
 
 
             DistanceLabel.Content = Distance;
@@ -284,8 +286,10 @@ namespace DungeonCrawler
                 Uri uri = new Uri(filepath, UriKind.RelativeOrAbsolute);
                 BitmapImage bitmap = new BitmapImage(uri);
 
-                ImageBrush imageBrush = new ImageBrush();
-                imageBrush.ImageSource = bitmap;
+                ImageBrush imageBrush = new ImageBrush
+                {
+                    ImageSource = bitmap
+                };
 
                 //obsticle.Fill = imageBrush;
                 player.CollisionMask.Fill = imageBrush;
