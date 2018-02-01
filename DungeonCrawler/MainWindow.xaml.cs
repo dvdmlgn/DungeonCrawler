@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace DungeonCrawler
 {
@@ -40,17 +41,27 @@ namespace DungeonCrawler
             }
         };
 
+        static EntityStats entityStats = new EntityStats()
+        {
+            X = 0,
+            Y = 0,
+
+            Speed = 0,
+
+            CollisionMask = new Rectangle()
+            {
+                Height = 40,
+                Width = 40,
+                Fill = Brushes.BlueViolet
+            }
+        };
+
         Entity player;
 
 
         Rectangle obsticle = new Rectangle();
 
         String Distance = "";
-
-        //public static int x = 0;
-        //public static int y = 0;
-        //public static int speed = 1;
-
 
         public static int Ticks = 0;
         public static int Seconds = 0;
@@ -81,6 +92,20 @@ namespace DungeonCrawler
             DistanceLabel.Content = Distance;
 
             SetTimerInterrupts();
+
+           // string filepath = Environment.CurrentDirectory;
+            //filepath = filepath.Substring(0, filepath.Length - 9);
+
+           // string playerPath = filepath + "player.json";
+
+           // string playerJson = JsonConvert.SerializeObject(playerStats, Formatting.Indented);
+           // File.WriteAllText(playerPath, playerJson);
+
+
+           // string entityPath = filepath + "entity.json";
+
+            //string entityJson = JsonConvert.SerializeObject(entityStats, Formatting.Indented);
+            //File.WriteAllText(entityPath, entityJson);
 
         }
 
@@ -132,7 +157,7 @@ namespace DungeonCrawler
 
             //MovePlayer();
 
-            Game.Loop(player, canvas);
+            Game.Loop();
             
         }
 
