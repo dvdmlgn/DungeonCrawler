@@ -12,8 +12,8 @@ namespace DungeonCrawler
     {
         #region Properties
       // ---------------------------------------------------------------------------------------------------------
-        public int X { get; set; }
-        public int Y { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
 
         public int Speed { get; set; }
 
@@ -58,7 +58,7 @@ namespace DungeonCrawler
 
         #region Methods
       // ---------------------------------------------------------------------------------------------------------
-        public void Move(int x, int y)
+        public void Move(float x, float y)
         {
           // update Entites Co-Ordinates with new positions
             this.X += x;

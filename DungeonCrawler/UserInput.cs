@@ -8,11 +8,11 @@ namespace DungeonCrawler
 {
     public struct UserInput
     {
-        public int PlayerX { get; set; }
-        public int PlayerY { get; set; }
+        public float PlayerX { get; set; }
+        public float PlayerY { get; set; }
 
-        public int MouseX { get; set; }
-        public int MouseY { get; set; }
+        public float MouseX { get; set; }
+        public float MouseY { get; set; }
 
         public void Reset()
         {

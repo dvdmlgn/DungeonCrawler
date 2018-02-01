@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,10 @@ namespace DungeonCrawler
         public static UserInput UserInput = new UserInput();
         public static Entity Player { get; set; }
         public static List<Entity> Entities { get; set; }
+
+       // private static Stopwatch time = new Stopwatch(); // used for calculating delta time
+        public static float DeltaTime = 0.5f;
+
 
         public static Canvas Canvas;
       // ---------------------------------------------------------------------------------------------------------
@@ -42,9 +47,17 @@ namespace DungeonCrawler
       // ---------------------------------------------------------------------------------------------------------
         public static void Loop()
         {
+           // time.Start();
+
             GetUserInput();
 
             // DoGameLogic();
+
+          // /time.Stop();
+          // DeltaTime = time.ElapsedMilliseconds ;
+            //time.Reset();
+
+            
 
             UpdateCanvas();
         }
@@ -58,7 +71,7 @@ namespace DungeonCrawler
 
             if (Keyboard.IsKeyDown(Key.A))
             {
-                UserInput.PlayerX = 0 - Player.Speed;
+                UserInput.PlayerX = 0 - (Player.Speed * DeltaTime);
 
                 // calculate if collision will occur
 
@@ -69,7 +82,7 @@ namespace DungeonCrawler
             {
                 //int x = 0 + player.Speed;
 
-                UserInput.PlayerX = 0 + Player.Speed;
+                UserInput.PlayerX = 0 + (Player.Speed * DeltaTime);
 
                // player.Move(x, player.Y);
             }
@@ -78,7 +91,7 @@ namespace DungeonCrawler
             {
                 //int y = 0 - player.Speed;
 
-                UserInput.PlayerY = 0 - Player.Speed;
+                UserInput.PlayerY = 0 - (Player.Speed * DeltaTime);
 
                 //player.Move(player.X, y); 
             }
@@ -87,7 +100,7 @@ namespace DungeonCrawler
             {
                 //int y = 0 + player.Speed;
 
-                UserInput.PlayerY = 0 + Player.Speed;
+                UserInput.PlayerY = 0 + (Player.Speed * DeltaTime);
 
                 //player.Move(player.X, y);
             }

@@ -31,7 +31,7 @@ namespace DungeonCrawler
             X = 0,
             Y = 0,
 
-            Speed = 7,
+            Speed = 12,
 
             CollisionMask = new Rectangle()
             {
@@ -160,6 +160,10 @@ namespace DungeonCrawler
             //MovePlayer();
 
             Game.Loop();
+
+            DistanceLabel.Content = "";
+
+            DistanceLabel.Content = Game.DeltaTime.ToString();
             
         }
 
