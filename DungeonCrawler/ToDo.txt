@@ -1,7 +1,11 @@
 ﻿- redo collision dectection
-- create entity classes to handle game objects
-- refactor code into game loop
+~ create entity classes to handle game objects
+~ refactor code into game loop
 - get animations working
+	- have a bit done at the moment,
+	- thinking about using a bool variable
+      to toggle the AnimationTimer 'IsEnabled'
+	  to better work with using appropriate animations for appropriate direction
 - create template editor
 - use JSON for Save files, and save locations for room templates 
-- get Delta time working
+~ get Delta time working

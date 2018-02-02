@@ -25,6 +25,7 @@ namespace DungeonCrawler
     {
         private DispatcherTimer timeer = new DispatcherTimer();
         private DispatcherTimer Secondstimer = new DispatcherTimer();
+        public static DispatcherTimer AnimationTime = new DispatcherTimer();
 
         static EntityStats playerStats = new EntityStats()
         {
@@ -137,6 +138,19 @@ namespace DungeonCrawler
             Secondstimer.IsEnabled = true;
             Secondstimer.Interval = TimeSpan.FromSeconds(1);
             Secondstimer.Tick += OnSecondsTimerTick;
+
+            AnimationTime.IsEnabled = true;
+            AnimationTime.Interval = TimeSpan.FromSeconds(0.2);
+            AnimationTime.Tick += OnAnimationTick;
+        }
+
+        private void OnAnimationTick(object sender, EventArgs e)
+        {
+            DistanceLabel.Content = "";
+
+            DistanceLabel.Content = Game.AnimationDirection + Game.AnimationFrame.ToString();
+
+            Game.AnimationFrame++;
         }
 
         private void OnTimerTick(object sender, EventArgs e)
@@ -161,9 +175,9 @@ namespace DungeonCrawler
 
             Game.Loop();
 
-            DistanceLabel.Content = "";
+            //DistanceLabel.Content = "";
 
-            DistanceLabel.Content = Game.DeltaTime.ToString();
+            //DistanceLabel.Content = Game.DeltaTime.ToString();
             
         }
 

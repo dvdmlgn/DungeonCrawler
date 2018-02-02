@@ -22,6 +22,10 @@ namespace DungeonCrawler
        // private static Stopwatch time = new Stopwatch(); // used for calculating delta time
         public static float DeltaTime = 0.5f;
 
+        public static int AnimationFrame = 0;
+        public static string AnimationDirection = "";
+        public static bool IsAnimation = false;
+
 
         public static Canvas Canvas;
       // ---------------------------------------------------------------------------------------------------------
@@ -76,7 +80,20 @@ namespace DungeonCrawler
                 // calculate if collision will occur
 
                 //player.Move(x, player.Y);
+
+                AnimationFrame = 0;
+                AnimationDirection = "Left";
+
+                MainWindow.AnimationTime.IsEnabled = true;
+
             }
+            // else
+            //{
+            //    MainWindow.AnimationTime.IsEnabled = false;
+
+            //    AnimationFrame = 0;
+            //}
+
 
             if (Keyboard.IsKeyDown(Key.D))
             {
@@ -84,8 +101,13 @@ namespace DungeonCrawler
 
                 UserInput.PlayerX = 0 + (Player.Speed * DeltaTime);
 
-               // player.Move(x, player.Y);
+                // player.Move(x, player.Y);
+                AnimationFrame = 0;
+                AnimationDirection = "Right";
+
+                MainWindow.AnimationTime.IsEnabled = true;
             }
+
 
             if (Keyboard.IsKeyDown(Key.W))
             {
@@ -94,7 +116,13 @@ namespace DungeonCrawler
                 UserInput.PlayerY = 0 - (Player.Speed * DeltaTime);
 
                 //player.Move(player.X, y); 
+
+                AnimationFrame = 0;
+                AnimationDirection = "Up";
+
+                MainWindow.AnimationTime.IsEnabled = true;
             }
+
 
             if (Keyboard.IsKeyDown(Key.S))
             {
@@ -103,7 +131,13 @@ namespace DungeonCrawler
                 UserInput.PlayerY = 0 + (Player.Speed * DeltaTime);
 
                 //player.Move(player.X, y);
+
+                AnimationFrame = 0;
+                AnimationDirection = "Down";
+
+                MainWindow.AnimationTime.IsEnabled = true;
             }
+
 
 
             // @Debug code for testing the movement 'system'
